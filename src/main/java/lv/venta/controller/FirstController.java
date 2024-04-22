@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import lv.venta.model.Product;
+
 @Controller
 public class FirstController {
 	
@@ -26,10 +28,29 @@ public class FirstController {
 	}
 	
 	
-	//TODO
-	//1. create git repo and push this project
-	//2. create model package as lv.venta.model
-	//3. create a new model class Product in this package (id, title, description, price, quantity)
+	@GetMapping("/product/test") //localhost:8080/product/test
+	public String getProductTest(Model model) {
+		System.out.println("The third controller is working!!!");
+		Product p = new Product("Apple", "Red", 0.99f, 4);
+		model.addAttribute("mypackage", p);
+		return "show-one-product-page";//it will show show-one-product-page.html file in browser
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
