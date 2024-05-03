@@ -18,7 +18,21 @@ public class productServiceImpl implements IProductCRUDService, IProductFilterin
 
 	@Override
 	public void create(String title, String description, float price, int quantity) throws Exception {
-		// TODO Auto-generated method stub
+		if(title == null || description == null || price < 0 || quantity < 0)
+			throw new Exception("Problem with input params");
+		
+		
+		Product productFromDB = productRepo.findByTitleAndDescriptionAndPrice(title,description,price);
+		//product exists in DB
+		if(productFromDB!=null) {
+			productFromDB.setQuantity(productFromDB.getQuantity() + quantity);//will change only in back-end layer
+			productRepo.save(productFromDB);//will change also in database layer
+		}
+		else
+		{
+			Product productNew = new Product(title, description, price, quantity);//will create new product only in back-end layer
+			productRepo.save(productNew);//will save it also in database layer
+		}
 		
 	}
 

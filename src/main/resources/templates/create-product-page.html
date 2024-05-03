@@ -1,0 +1,36 @@
+<hmtl xmlns:th="http://www.thymeleaf.org">
+
+	<body>
+		
+		<p> This is an example for data passing from JAVA to HTML </p>
+		
+		<form th:action="@{/product/crud/create}" th:objrct="${product}" method="post">
+			
+			<table>
+				<tr>
+					<td>Title</td>
+					<td> <input type="text" th:field="*{title}"> </td>
+				</tr>
+				
+				<tr>
+					<td>Description</td>
+					<td> <input type="text" th:field="*{description}"> </td>
+				</tr>
+				
+				<tr>
+					<td>Price</td>
+					<td> <input type="text" th:field="*{price}"> </td>
+				</tr>
+				
+				<tr>
+					<td>Title</td>
+					<td> <input type="text" th:field="*{quantity}"> </td>
+				</tr>
+			</table>
+			<input type="submit" value="Save">
+			
+		</form>		
+	</body>
+	
+		
+</hmtl>
