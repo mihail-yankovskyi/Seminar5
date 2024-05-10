@@ -15,7 +15,7 @@ public class Seminar5Application {
 		SpringApplication.run(Seminar5Application.class, args);
 	}
 	
-	@Bean
+	//@Bean
 	public CommandLineRunner testDatabase(IProductRepo productRepo) {
 		return new CommandLineRunner() {
 			
